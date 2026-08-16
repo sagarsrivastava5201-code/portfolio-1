@@ -894,3 +894,18 @@ footer {
     object-fit: cover;
     display: block;
 }
+
+@media (max-width: 768px) {
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        box-sizing: border-box;
+    }
+
+}

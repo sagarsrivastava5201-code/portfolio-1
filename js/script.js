@@ -226,4 +226,3 @@ if (typeof particlesJS !== "undefined") {
     });
 
 }
-
