@@ -332,7 +332,9 @@ async function loadMessages() {
     try {
 
         const response =
-            await fetch("http://localhost:5000/api/messages");
+            await fetch("/api/messages", {
+    credentials: "include"
+})
 
         const messages = await response.json();
 
@@ -431,12 +433,10 @@ async function markAsRead(id) {
 
     try {
 
-        await fetch(
-            `http://localhost:5000/api/messages/${id}/read`,
-            {
-                method: "PUT"
-            }
-        );
+        awaitfetch(`/api/messages/${id}/read`, {
+    method: "PUT",
+    credentials: "include"
+})
 
         loadMessages();
 
@@ -462,12 +462,10 @@ async function deleteMessage(id) {
 
     try {
 
-        const response = await fetch(
-            `http://localhost:5000/api/messages/${id}`,
-            {
-                method: "DELETE"
-            }
-        );
+        const response = await fetch(`/api/messages/${id}`, {
+    method: "DELETE",
+    credentials: "include"
+})
 
         const data = await response.json();
 
