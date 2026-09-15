@@ -226,3 +226,70 @@ if (typeof particlesJS !== "undefined") {
     });
 
 }
+// ===============================
+// CONTACT MESSAGE FORM
+// ===============================
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        const formData = {
+            name: contactForm.name.value,
+            email: contactForm.email.value,
+            message: contactForm.message.value
+        };
+
+        try {
+
+            const response = await fetch("http://localhost:5000/api/messages", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+
+                let successMessage =
+                    document.getElementById("successMessage");
+
+                if (!successMessage) {
+
+                    successMessage = document.createElement("p");
+                    successMessage.id = "successMessage";
+
+                    contactForm.appendChild(successMessage);
+                }
+
+                successMessage.textContent =
+                    "✓ Message sent successfully to Sagar Srivastava!";
+
+                successMessage.style.marginTop = "15px";
+                successMessage.style.fontWeight = "600";
+
+                contactForm.reset();
+
+            } else {
+
+                alert("Message send nahi hua. Please try again.");
+
+            }
+
+        } catch (error) {
+
+            console.error("Error:", error);
+
+            alert("Server se connection nahi ho pa raha.");
+        }
+
+    });
+
+}

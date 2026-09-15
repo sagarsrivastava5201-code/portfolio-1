@@ -909,3 +909,40 @@ footer {
     }
 
 }
+ /* message card */
+
+.messages-section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+#messagesContainer {
+    display: grid;
+    gap: 20px;
+}
+
+.message-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.message-card h2 {
+    margin-bottom: 15px;
+}
+
+.message-card p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.message-card small {
+    display: block;
+    margin-top: 18px;
+    opacity: 0.6;
+}
+
